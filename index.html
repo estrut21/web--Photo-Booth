@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Photo Booth</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+     <style>
+        :root{
+            --curtain: #7a1420;
+            --curtain-deep: #520c14;
+            --cream: #f4e8d0;
+            --brass: #d9a441;
+            --brass-bright: #f3c969;
+            --bulb-off: #6b4a1e;
+         }
+         * { box-sizing: border-box; margin: 0; padding: 0; }
+         body {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--cream);
+            min-height: 100vh;
+            background:
+                radial-gradient(ellipse at 50% -10%, #9c2030 0%, transparent 55%),
+                repeating-linear-gradient(90deg, var(--curtain) 0px, var(--curtain) 38px, var(--curtain-deep) 38px, var(--curtain-deep) 78px),
+                var(--curtain-deep);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 28px 16px 60px;
+         }
+         
+     </style>
+    </head>
+</html>
