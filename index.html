@@ -99,7 +99,68 @@
         #strip-canvas { max-width: 240px; width: 100%; border-radius: 4px; box-shadow: 0 14px 40px rgba(0,0,0,0.6); transform: rotate(-1.5deg); }
         .result .controls { width: min(360px, 100%); }
         a.btn { text-decoration: none; display: flex; align-items: center; justify-content: center; }
+        
 
      </style>
     </head>
+    <body>
+        <div class="sign">
+            <div class="screen">
+                <h1>Photo Booth</h1>
+                <div class="tagline">Smile &middot; Strike a pose &middot; Print</div>
+            </div>
+
+            <div class="booth" id="booth">
+                <div class="screen">
+                    <video id="video" autoplay playsinline muted></video>
+                    <canvas id="capture-canvas"></canvas>
+                    <div class="countdown" id="countdown"></div>
+                    <div class="flash" id="flash"></div>
+                    <div class="status" id="status">Tap "Start camera" to begin</div>
+                </div>
+                <div class="label">Pick a look</div>
+                <div class="filters" id="filters"></div>
+                <div class="controls">
+                    <button class="btn btn-ghost" id="start-btn">Start Camera</button>
+                    <button class="btn btn-primary" id="capture-btn" disabled>Take 4 Photos </button>
+                </div>
+                <div class="hint">4 quick photos become a classic strip you can download.</div>
+                </div>
+
+        <div class="result" id="result">
+            <canvas id="strip-canvas"></canvas>
+            <div class="controls">
+                <a class="btn btn-primary" id="download-btn" downloads="photobooth-strip.png">Download Strip</a>
+                <button class="btn btn-ghost" id="again-btn">Again!</button>
+            </div>
+        </div>
+
+        <script>
+            (() => {
+                const video = document.getElementById('video');
+                const cap = document.getElementById('capture-canvas');
+                const strip = document.getElementById('strip-canvas');
+                const countdownEl = document.getElementById('countdown');
+                const flash = document.getElementById('flash');
+                const status = document.getElementById('status');
+                const startBtn = document.getElementById('start-btn');
+                const shootBtn = document.getElementById('capture-btn');
+                const dlBtn = document.getElementById('download-btn');
+                const booth = document.getElementById('booth');
+                const result = document.getElementById('result');
+            }
+
+        const FILTERS = [
+            { name: 'Original', css: 'none' },
+            { name: 'B&W' , css: 'grayscale(1) contrast(1.1)'},
+            { name: 'Sepia', css: 'sepia(0.75) contrast(1.4) contrast(1.1) brightness(1.05)' },
+            { name: 'Vintage', css: 'sepia(0.45) saturate(1.4) contrast(1.1) brightness(1.05)' },
+            { name: 'Cool', css: 'saturate(1.3) hue-rotate(-12deg) brightness(1.05)' },
+            { name: 'Warm', css: 'sepia(0.25) saturate(1.5) hue-rotate(-8deg)' },
+            { name: 'Punch', css: 'contrast(1.5) saturate(1.6)' },
+            { name: 'Faded', css: 'contrast(0.85) brightness(1.15) sepia(0.8)' },
+        ];
+        let activeFilter = FILTERS[0];
+        </script>
+    </body>
 </html>
